@@ -14,6 +14,9 @@ const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 
 let content;
 try { content = JSON.parse(await readFile(dataFile,'utf8')); }
 catch { content = {schemaVersion:1,github:{user:config.githubUser,repos:[]},zhihu:{user:config.zhihuUser,articles:[]}}; }
+const websiteRepository = `${config.githubUser}.github.io`.toLowerCase();
+const isProjectRepository = repo => String(repo.name || '').toLowerCase() !== websiteRepository;
+if (Array.isArray(content.github?.repos)) content.github.repos = content.github.repos.filter(isProjectRepository);
 
 async function request(url, extraHeaders={}) {
   const response = await fetch(url,{headers:{'User-Agent':userAgent,...extraHeaders},signal:AbortSignal.timeout(15000)});
@@ -101,7 +104,7 @@ try {
   for(let page=1;page<=20;page++) {
     const batch=await (await request(`https://api.github.com/users/${encodeURIComponent(config.githubUser)}/repos?sort=updated&per_page=100&page=${page}`,headers)).json();
     if(!Array.isArray(batch)) throw new Error('Unexpected GitHub response');
-    repos.push(...batch.filter(repo=>!repo.private&&repo.owner?.login?.toLowerCase()===config.githubUser.toLowerCase()).map(repo=>({name:repo.name,url:repo.html_url,description:repo.description||'',language:repo.language,stars:repo.stargazers_count||0,fork:!!repo.fork,archived:!!repo.archived,updatedAt:repo.updated_at})));
+    repos.push(...batch.filter(repo=>!repo.private&&repo.owner?.login?.toLowerCase()===config.githubUser.toLowerCase()&&isProjectRepository(repo)).map(repo=>({name:repo.name,url:repo.html_url,description:repo.description||'',language:repo.language,stars:repo.stargazers_count||0,fork:!!repo.fork,archived:!!repo.archived,updatedAt:repo.updated_at})));
     if(batch.length<100) break;
     if(page===20) throw new Error('Public repository pagination limit exceeded');
   }

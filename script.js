@@ -57,7 +57,7 @@
       percentage.textContent = '100';
       progress.setAttribute('aria-valuenow', '100');
       $('span', progress).style.width = '100%';
-      status.textContent = skipped ? '进入作品集' : '作品集就绪';
+      status.textContent = skipped ? '开始浏览' : '加载完成';
       gate.classList.add('leaving');
       document.body.classList.remove('gate-open');
       backgrounds.forEach(element => { element.inert = false; });
@@ -80,7 +80,7 @@
       percentage.textContent = String(number).padStart(2, '0');
       progress.setAttribute('aria-valuenow', String(number));
       $('span', progress).style.width = displayed + '%';
-      status.textContent = number < 35 ? '加载作品集' : number < 75 ? '准备页面' : number < 100 ? '准备进入作品集' : '加载完成';
+      status.textContent = number < 35 ? '加载页面' : number < 75 ? '准备内容' : number < 100 ? '即将就绪' : '加载完成';
       if (number === 100) finishTimer = setTimeout(() => finish(), 180);
       else frame = requestAnimationFrame(tick);
     }
@@ -263,7 +263,9 @@
 
   const snapshot = window.PORTFOLIO_CONTENT || {github:{user:'f2015805589',repos:[]},zhihu:{articles:[]}};
   const githubUser = snapshot.github?.user || 'f2015805589';
-  let repositories = snapshot.github?.repos || [];
+  const websiteRepository = `${githubUser}.github.io`.toLowerCase();
+  const isProjectRepository = repo => String(repo.name || '').toLowerCase() !== websiteRepository;
+  let repositories = (snapshot.github?.repos || []).filter(isProjectRepository);
   let repoFilter = 'original';
   function element(tag, className, text) {
     const node = document.createElement(tag);
@@ -290,7 +292,6 @@
   }
   function renderRepositories() {
     const grid = $('#repo-grid');
-    if (!repositories.length) { $('#repo-count').textContent = ''; return; }
     const sorted = [...repositories].sort((a,b) => (Date.parse(b.updatedAt)||0) - (Date.parse(a.updatedAt)||0));
     const visible = sorted.filter(repo => repoFilter === 'all' || !repo.fork);
     $('#repo-count').textContent = String(visible.length).padStart(2,'0');
@@ -356,12 +357,11 @@
         if (!response.ok) throw new Error('GitHub unavailable');
         const batch = await response.json();
         if (!Array.isArray(batch)) throw new Error('Unexpected response');
-        result.push(...batch.filter(repo => !repo.private && repo.owner?.login?.toLowerCase() === githubUser.toLowerCase()).map(repo => ({name:repo.name,url:repo.html_url,description:repo.description||'',language:repo.language,stars:repo.stargazers_count||0,fork:!!repo.fork,archived:!!repo.archived,updatedAt:repo.updated_at})));
+        result.push(...batch.filter(repo => !repo.private && repo.owner?.login?.toLowerCase() === githubUser.toLowerCase() && isProjectRepository(repo)).map(repo => ({name:repo.name,url:repo.html_url,description:repo.description||'',language:repo.language,stars:repo.stargazers_count||0,fork:!!repo.fork,archived:!!repo.archived,updatedAt:repo.updated_at})));
         if (batch.length < 100) break;
         if (page === 20) throw new Error('Pagination limit reached');
       }
       repositories = result;
-      if (!result.length) $('#repo-grid').replaceChildren();
       renderRepositories();
       $('#github-sync-note').textContent = '公开项目按最近更新时间排序 · 已更新';
     } catch { /* The bundled public snapshot stays visible when GitHub is temporarily unavailable. */ }
