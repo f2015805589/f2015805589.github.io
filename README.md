@@ -23,12 +23,12 @@
 
 1. 本项目使用 [f2015805589/fengta](https://github.com/f2015805589/fengta) 仓库。
 2. 网站文件位于仓库根目录，包括 `.github` 文件夹、`package.json` 与 `package-lock.json`。首页 `index.html` 直接位于根目录。
-3. 在仓库的 **Settings → Pages → Source** 中选择 **GitHub Actions**。
-4. 打开 **Actions → Sync public content and publish portfolio → Run workflow**。完成后，Pages 设置页会显示真实网站地址。
+3. 在仓库的 **Settings → Pages → Source** 中选择 **Deploy from a branch**，分支选择 **main**，目录选择 **/ (root)**。本仓库已经按此方式配置。
+4. 打开 **Actions → Sync public content and publish portfolio → Run workflow**。流程会同步内容、检查构建，再请求 GitHub 原生 Pages 发布，并等待对应提交发布成功。
 
 后续更新主分支会自动发布。工作流每天在香港时间 08:17 左右尝试同步公开内容并发布；运行时间由 GitHub 调度决定。GitHub Pages 启用并成功部署后，项目网站地址为 `https://f2015805589.github.io/fengta/`；是否已上线以 Pages 设置和工作流结果为准。
 
-发布方式参考 [GitHub Pages 官方文档](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
+发布方式参考 [GitHub Pages 发布来源官方文档](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。同步提交后，通过 [官方 Pages Build API](https://docs.github.com/en/rest/pages/pages#request-a-github-pages-build) 显式请求发布。
 
 ## GitHub 项目
 
@@ -67,6 +67,6 @@ npm run sync
 - 简历预览：`assets/resume-page-1.webp` 至 `resume-page-3.webp`。替换 PDF 后，应同时更新预览图片。
 - 公开内容快照：`assets/content.json` 和 `assets/content-data.js`，由同步脚本一起生成。
 
-`npm run build` 只复制网站所需文件到 `dist`，不会发布同步工具、配置或登录状态。
+`npm run build` 复制网站所需文件到 `dist`，用于构建检查和其他静态平台。这个仓库的 GitHub Pages 使用 `main` 根目录发布；`.local` 登录状态不进入仓库，始终不会被上传或发布。
 
 引擎与 GitHub 图标来自 [Simple Icons](https://github.com/simple-icons/simple-icons)。Godot 图标原始来源及许可见 [Godot 品牌资源](https://godotengine.org/press/)。作品卡片采用本地绘制的示意封面，不依赖原站已不可访问的远程图片。

@@ -10,7 +10,6 @@ on:
 permissions:
   contents: write
   pages: write
-  id-token: write
 
 concurrency:
   group: portfolio-pages
@@ -20,9 +19,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -46,9 +42,7 @@ jobs:
             git push
           fi
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - name: Publish GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Publish through the configured GitHub Pages branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node tools/publish-pages.mjs
