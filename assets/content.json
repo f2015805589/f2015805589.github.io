@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "github": {
     "user": "f2015805589",
-    "syncedAt": "2026-09-30T15:41:49.684Z",
+    "syncedAt": "2026-09-30T15:50:45.660379+00:00",
     "status": "ok",
     "repos": [
       {
-        "name": "fengta",
-        "url": "https://github.com/f2015805589/fengta",
+        "name": "f2015805589.github.io",
+        "url": "https://github.com/f2015805589/f2015805589.github.io",
         "description": "",
         "language": "JavaScript",
         "stars": 0,
         "fork": false,
         "archived": false,
-        "updatedAt": "2026-09-30T15:39:45Z"
+        "updatedAt": "2026-09-30T15:49:39Z"
       },
       {
         "name": "FengEngine",
@@ -61,7 +61,7 @@
     "user": "shen-feng-60-57",
     "articles": [],
     "profileURL": "https://www.zhihu.com/people/shen-feng-60-57/posts",
-    "checkedAt": "2026-09-30T15:41:49.684Z",
+    "checkedAt": "2026-09-30T14:45:15.975Z",
     "status": "blocked"
   }
 }

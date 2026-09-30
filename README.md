@@ -21,12 +21,14 @@
 
 ## 发布到 GitHub Pages
 
-1. 本项目使用 [f2015805589/fengta](https://github.com/f2015805589/fengta) 仓库。
+1. 本项目使用 [f2015805589/f2015805589.github.io](https://github.com/f2015805589/f2015805589.github.io) 仓库，发布在账户的根地址。
 2. 网站文件位于仓库根目录，包括 `.github` 文件夹、`package.json` 与 `package-lock.json`。首页 `index.html` 直接位于根目录。
 3. 在仓库的 **Settings → Pages → Source** 中选择 **Deploy from a branch**，分支选择 **main**，目录选择 **/ (root)**。本仓库已经按此方式配置。
 4. 打开 **Actions → Sync public content and publish portfolio → Run workflow**。流程会同步内容、检查构建，再请求 GitHub 原生 Pages 发布，并等待对应提交发布成功。
 
-后续更新主分支会自动发布。工作流每天在香港时间 08:17 左右尝试同步公开内容并发布；运行时间由 GitHub 调度决定。GitHub Pages 启用并成功部署后，项目网站地址为 `https://f2015805589.github.io/fengta/`；是否已上线以 Pages 设置和工作流结果为准。
+网站地址为 [https://f2015805589.github.io/](https://f2015805589.github.io/)。仓库名称必须保持为 `f2015805589.github.io`，才能使用这个账户根地址。Pages 的 Custom domain 保持为空；此地址不需要 `CNAME` 文件。
+
+后续更新主分支会自动发布。工作流每天在香港时间 08:17 左右尝试同步公开内容并发布；运行时间由 GitHub 调度决定。是否已上线以 Pages 设置和工作流结果为准。
 
 发布方式参考 [GitHub Pages 发布来源官方文档](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。同步提交后，通过 [官方 Pages Build API](https://docs.github.com/en/rest/pages/pages#request-a-github-pages-build) 显式请求发布。
 
