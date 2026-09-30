@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+ <defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#e5e9df"/><stop offset="1" stop-color="#eff1e9"/></linearGradient>
+  <linearGradient id="land" x2="0.6" y2="1"><stop stop-color="#86977a"/><stop offset=".5" stop-color="#bdc8b3"/><stop offset="1" stop-color="#e0e5d9"/></linearGradient>
+  <pattern id="grid" width="75" height="75" patternUnits="userSpaceOnUse"><path d="M75 0H0V75" fill="none" stroke="#8c9a82" stroke-opacity=".12"/></pattern>
+  <radialGradient id="glow"><stop stop-color="#b0bda3" stop-opacity=".2"/><stop offset="1" stop-color="#b0bda3" stop-opacity="0"/></radialGradient>
+ </defs>
+ <path fill="url(#bg)" d="M0 0h1200v675H0z"/><path fill="url(#grid)" d="M0 0h1200v675H0z"/>
+ <ellipse cx="840" cy="370" rx="400" ry="310" fill="url(#glow)"/>
+ <g transform="translate(390 60)">
+  <path d="M45 440 245 182 310 274 450 75 737 440 438 572Z" fill="url(#land)"/>
+  <g fill="none" stroke="#697d5b" stroke-width="1.4" opacity=".42">
+   <path d="m45 440 200-258 65 92 140-199 287 365-299 132Z"/>
+   <path d="m96 431 152-193 58 83 142-194 236 313-247 84Z"/>
+   <path d="m146 422 106-129 55 77 139-191 186 264-195 51Z"/>
+   <path d="m196 412 55-68 59 74 132-187 138 215-145 19Z"/>
+   <path d="m247 403 67 70 123-188 90 164-91-12Z"/>
+   <path d="m310 274 128 298M450 75 438 572M245 182l193 390M45 440l692 0"/>
+  </g>
+  <circle cx="450" cy="75" r="7" fill="#86977a"/><path d="M450 59V20h130" fill="none" stroke="#86977a" opacity=".6"/>
+  <text x="588" y="24" fill="#829575" font-family="monospace" font-size="15">SURFACE / 01</text>
+ </g>
+ <text x="52" y="65" fill="#475c3b" font-family="monospace" font-size="16" letter-spacing="3">YIFENG XU / PORTFOLIO</text>
+ <text x="52" y="175" fill="#374331" font-family="Arial,sans-serif" font-size="69" font-weight="700" letter-spacing="-3">AUTUMN</text>
+ <text x="54" y="218" fill="#89967d" font-family="monospace" font-size="22" letter-spacing="8">SHOWREEL</text>
+ <path d="M52 263h67" stroke="#475c3b" stroke-width="3"/>
+ <text x="54" y="586" fill="#475c3b" font-family="monospace" font-size="17" letter-spacing="2">TECHNICAL ART</text>
+ <text x="54" y="615" fill="#8d9a83" font-family="monospace" font-size="14">BV1gGaNzaECM</text>
+</svg>

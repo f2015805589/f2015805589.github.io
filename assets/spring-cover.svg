@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+ <defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#e4e7e0"/><stop offset="1" stop-color="#f0f1ed"/></linearGradient>
+  <radialGradient id="orb" cx=".3" cy=".25" r=".8"><stop stop-color="#f8f9f5"/><stop offset=".25" stop-color="#d9dfd1"/><stop offset=".58" stop-color="#a4b29a"/><stop offset=".8" stop-color="#75886b"/><stop offset="1" stop-color="#93a289"/></radialGradient>
+  <pattern id="grid" width="75" height="75" patternUnits="userSpaceOnUse"><path d="M75 0H0V75" fill="none" stroke="#9faa96" stroke-opacity=".11"/></pattern>
+  <clipPath id="clip"><circle cx="830" cy="350" r="215"/></clipPath>
+ </defs>
+ <path fill="url(#bg)" d="M0 0h1200v675H0z"/><path fill="url(#grid)" d="M0 0h1200v675H0z"/>
+ <circle cx="830" cy="350" r="245" fill="none" stroke="#a4ae9b" stroke-opacity=".25" stroke-dasharray="4 10"/>
+ <circle cx="830" cy="350" r="215" fill="url(#orb)"/>
+ <g clip-path="url(#clip)" fill="none" stroke="#819373" stroke-width="1.5" opacity=".3">
+  <ellipse cx="830" cy="350" rx="215" ry="36"/><ellipse cx="830" cy="350" rx="215" ry="100"/><ellipse cx="830" cy="350" rx="215" ry="173"/>
+  <ellipse cx="830" cy="350" rx="36" ry="215"/><ellipse cx="830" cy="350" rx="100" ry="215"/><ellipse cx="830" cy="350" rx="173" ry="215"/>
+ </g>
+ <ellipse cx="830" cy="350" rx="310" ry="78" transform="rotate(-25 830 350)" fill="none" stroke="#8a9b7e" stroke-width="2"/>
+ <circle cx="552" cy="466" r="9" fill="#8a9b7e"/>
+ <text x="52" y="65" fill="#506445" font-family="monospace" font-size="16" letter-spacing="3">YIFENG XU / PORTFOLIO</text>
+ <text x="52" y="175" fill="#374331" font-family="Arial,sans-serif" font-size="69" font-weight="700" letter-spacing="-3">SPRING</text>
+ <text x="54" y="218" fill="#89967d" font-family="monospace" font-size="22" letter-spacing="8">SHOWREEL</text>
+ <path d="M52 263h67" stroke="#506445" stroke-width="3"/>
+ <text x="54" y="586" fill="#506445" font-family="monospace" font-size="17" letter-spacing="2">TECHNICAL ART</text>
+ <text x="54" y="615" fill="#8d9a83" font-family="monospace" font-size="14">BV1x3P2zKEXb</text>
+</svg>

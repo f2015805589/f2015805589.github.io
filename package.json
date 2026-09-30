@@ -1,0 +1,12 @@
+{
+  "name": "yifeng-technical-art-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "sync": "node tools/sync-public-content.mjs",
+    "zhihu:login": "node tools/sync-public-content.mjs --login",
+    "build": "node tools/build.mjs"
+  },
+  "devDependencies": { "playwright": "1.63.0" }
+}
