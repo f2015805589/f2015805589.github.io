@@ -24,8 +24,9 @@ if(pages.build_type !== 'legacy' || pages.source?.branch !== 'main' || pages.sou
   throw new Error('Configure Settings > Pages to publish from the main branch, / (root).');
 }
 // Explicitly request a native Pages build, including after a snapshot commit made by GITHUB_TOKEN.
-const requested = await api(base+'/builds','POST');
-const statusURL = requested.url || base+'/builds/latest';
+await api(base+'/builds','POST');
+// Query the documented endpoint directly; GitHub may return a repository-ID URL in the response.
+const statusURL = base+'/builds/latest';
 console.log(`Requested native Pages publishing for ${commit.slice(0,7)}.`);
 let previous = '';
 for(let attempt=0;attempt<60;attempt++) {
