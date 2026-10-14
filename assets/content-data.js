@@ -2,7 +2,7 @@ window.PORTFOLIO_CONTENT = {
   "schemaVersion": 1,
   "github": {
     "user": "f2015805589",
-    "syncedAt": "2026-10-13T06:51:34.323Z",
+    "syncedAt": "2026-10-14T04:59:24.484Z",
     "status": "ok",
     "repos": [
       {
@@ -61,7 +61,7 @@ window.PORTFOLIO_CONTENT = {
     "user": "shen-feng-60-57",
     "articles": [],
     "profileURL": "https://www.zhihu.com/people/shen-feng-60-57/posts",
-    "checkedAt": "2026-10-13T06:51:34.323Z",
+    "checkedAt": "2026-10-14T04:59:24.484Z",
     "status": "blocked"
   }
 };
