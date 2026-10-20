@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "github": {
     "user": "f2015805589",
-    "syncedAt": "2026-10-19T04:47:55.048Z",
+    "syncedAt": "2026-10-20T04:56:46.834Z",
     "status": "ok",
     "repos": [
       {
@@ -10,10 +10,10 @@
         "url": "https://github.com/f2015805589/renderdoccccc",
         "description": "",
         "language": "C++",
-        "stars": 0,
+        "stars": 2,
         "fork": false,
         "archived": false,
-        "updatedAt": "2026-10-15T08:37:15Z"
+        "updatedAt": "2026-10-19T11:18:00Z"
       },
       {
         "name": "FengEngine",
@@ -61,7 +61,7 @@
     "user": "shen-feng-60-57",
     "articles": [],
     "profileURL": "https://www.zhihu.com/people/shen-feng-60-57/posts",
-    "checkedAt": "2026-10-19T04:47:55.048Z",
+    "checkedAt": "2026-10-20T04:56:46.834Z",
     "status": "blocked"
   }
 }
